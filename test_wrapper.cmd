@@ -1,0 +1,5 @@
+SET DEBUG_HELPER=1
+SETLOCAL
+CALL vswhere_udability_wrapper.cmd
+ECHO %VS150COMNTOOLS%
+ENDLOCAL
