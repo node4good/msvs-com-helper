@@ -1,10 +1,10 @@
 :: Copyright 2017 - Refael Ackermann
 :: Distributed under MIT style license
 :: See accompanying file LICENSE at https://github.com/node4good/windows-autoconf
-:: version: 1.13.0
+:: version: 1.14.0
 
-@IF NOT DEFINED DEBUG_HELPER @ECHO OFF
-SETLOCAL
+@if not defined DEBUG_HELPER @ECHO OFF
+setlocal
 set VSWHERE_REQ=-requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64
 set VSWHERE_PRP=-property installationPath
 set VSWHERE_LMT=-version "[15.0,16.0)"
@@ -14,7 +14,7 @@ if not exist "%VSWHERE%" set "VSWHERE=%ProgramFiles%\Microsoft Visual Studio\Ins
 if not exist "%VSWHERE%" exit /B 1
 set Path=%Path%;%VSWHERE%
 for /f "usebackq tokens=*" %%i in (`vswhere %VSWHERE_ARGS%`) do (
-    ENDLOCAL
-    SET "VS150INSTPATH=%%i"
+    endlocal
+    set "VCINSTALLDIR=%%i\VC\"
     set "VS150COMNTOOLS=%%i\Common7\Tools\"
     exit /B 0)
