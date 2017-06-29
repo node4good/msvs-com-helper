@@ -1,12 +1,12 @@
 :: Copyright 2017 - Refael Ackermann
 :: Distributed under MIT style license
 :: See accompanying file LICENSE at https://github.com/node4good/windows-autoconf
-:: version: 1.15.2
+:: version: 1.15.3
 
 @if not defined DEBUG_HELPER @ECHO OFF
 setlocal
 set "InstallerPath=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer"
-if not exist "%InstallerPath%" set "VSWHERE=%ProgramFiles%\Microsoft Visual Studio\Installer"
+if not exist "%InstallerPath%" set "InstallerPath=%ProgramFiles%\Microsoft Visual Studio\Installer"
 if not exist "%InstallerPath%" exit goto :no-vswhere
 :: Manipulate %Path% for easier " handeling
 set Path=%Path%;%InstallerPath%
