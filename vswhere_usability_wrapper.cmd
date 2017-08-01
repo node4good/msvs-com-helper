@@ -1,7 +1,7 @@
 :: Copyright 2017 - Refael Ackermann
 :: Distributed under MIT style license
 :: See accompanying file LICENSE at https://github.com/node4good/windows-autoconf
-:: version: 1.15.4
+:: version: 1.15.5
 
 @if not defined DEBUG_HELPER @ECHO OFF
 setlocal
@@ -9,7 +9,7 @@ set "InstallerPath=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer"
 if not exist "%InstallerPath%" set "InstallerPath=%ProgramFiles%\Microsoft Visual Studio\Installer"
 if not exist "%InstallerPath%" goto :no-vswhere
 :: Manipulate %Path% for easier " handeling
-set Path=%Path%;%InstallerPath%
+set "Path=%Path%;%InstallerPath%"
 where vswhere 2> nul > nul
 if errorlevel 1 goto :no-vswhere
 set VSWHERE_REQ=-requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64
